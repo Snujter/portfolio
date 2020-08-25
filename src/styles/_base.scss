@@ -1,0 +1,37 @@
+// -------- COLOURS ------------
+$colours: (
+  'white':        hsl(269, 92%, 95%),
+  'black':        hsl(200, 95%, 5%),
+  'dark-blue':    hsl(220, 92%, 9%),
+  'blue':         hsl(219, 83%, 16%),
+  'light-green':  hsl(137, 93%, 61%),
+  'dark-green':   hsl(137, 30%, 22%),
+);
+
+// -------- SPACING ------------
+$gutters: (
+  'sm': 0.5rem,
+  'm':  1rem,
+  'l':  1.5rem,
+  'xl': 2rem,
+);
+
+// --------- FONTS -------------
+$primary-font: '';
+
+$font-sizes: (
+  'sm': 12px,
+  'm': 14px,
+  'l': 16px,
+  'xl': 18px,
+  'title': 24px,
+);
+
+$font-weights: (
+  'thin': 100,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'bold': 600,
+  'black': 700,
+);
