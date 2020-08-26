@@ -8,6 +8,14 @@ $colours: (
   'dark-green':   hsl(137, 30%, 22%),
 );
 
+// ------- BREAKPOINTS ---------
+$breakpoints: (
+  'sm': 600,
+  'm': 800,
+  'l': 1000,
+  'xl': 1200,
+);
+
 // -------- SPACING ------------
 $gutters: (
   'sm': 0.5rem,
