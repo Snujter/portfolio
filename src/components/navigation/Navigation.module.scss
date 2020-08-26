@@ -1,0 +1,46 @@
+@import "../../styles/base";
+
+.navigation-container {
+  background-color: red;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  transition: top 0.6s, background-color 0.5s ease-in-out;
+  color: map_get($colours, 'white');
+  &.hidden {
+    top: -100px;
+  }
+  &.nav-bg {
+    background-color: map_get($colours, 'black');
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    position: relative;
+    box-sizing: border-box;
+    height: $nav-height;
+
+    .nav-links {
+      display: none;
+      @include for-tablet-landscape-up() {
+        display: block;
+      }
+
+      margin: 0;
+
+      li {
+        display: inline-block;
+        margin-right: map_get($gutters, 'xl');
+        cursor: pointer;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
