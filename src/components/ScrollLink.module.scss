@@ -5,20 +5,25 @@
 }
 .underline {
   $transition: 0.3s ease all;
+  position: relative;
 
-  &::after {
+  &::before {
     content: "";
     display: block;
+    position: absolute;
     width: 0;
-    background: map_get($colours, 'light-green');
     height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: map_get($colours, 'light-green');
+    visibility: hidden;
     transition: $transition;
   }
   &:hover {
-    &::after {
+    &::before {
+      visibility: visible;
       width: 100%;
       transition: $transition;
-      color: map_get($colours, 'light-green');
     }
   }
 }
