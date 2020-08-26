@@ -9,6 +9,29 @@ $map-grid-props: (
   '-lg': map_get($breakpoints, 'l'),
   '-xl': map_get($breakpoints, 'xl')
 );
+$justify-content: (
+  flex-start,
+  flex-end,
+  center,
+  space-between,
+  space-around,
+  space-evenly,
+  start,
+  end,
+  left,
+  right,
+);
+$align-items: (
+  stretch,
+  flex-start,
+  flex-end,
+  center,
+  baseline,
+  start,
+  end,
+  self-start,
+  self-end,
+);
 
 @mixin create-mq($breakpoint, $min-or-max) {
   @if($breakpoint == 0) {
@@ -63,6 +86,16 @@ $map-grid-props: (
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    @each $value in $justify-content {
+      &.x-#{$value} {
+        justify-content: $value;
+      }
+    }
+    @each $value in $align-items {
+      &.y-#{$value} {
+        align-items: $value;
+      }
+    }
   }
   @each $modifier , $breakpoint in $map-grid-props {
     @include create-col-classes($modifier, $grid__cols, $breakpoint);
