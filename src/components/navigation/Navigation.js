@@ -4,6 +4,7 @@ import hamburgerStyles from "./HamburgerMenu.module.scss";
 import Slide from "react-reveal/Slide";
 import { getClassName } from "../../helpers";
 import ScrollTo from "../ScrollLink";
+import HamburgerIcon from "./HamburgerIcon";
 
 const links = [
   { id: "#home", label: "Home" },
@@ -51,11 +52,7 @@ const HamburgerMenu = ({ handleLinkClick, links }) => {
         "hidden-md-up"
       ])}
     >
-      <div className={hamburgerStyles.hamburgerIcon} onClick={toggleMenu}>
-        <div />
-        <div />
-        <div />
-      </div>
+      <HamburgerIcon onClick={toggleMenu} isOpen={isOpen}/>
       <div className={hamburgerStyles.hamburgerMenu}>
         <NavigationLinkContainer
           links={links}
