@@ -14,7 +14,7 @@ const links = [
   { id: "#contact", label: "Contact" },
 ];
 
-const NavigationLink = ({id, label, ...props}) => (
+const NavigationLink = ({ id, label, ...props }) => (
   <li {...props}>
     <ScrollTo id={id}>{label}</ScrollTo>
   </li>
@@ -23,13 +23,13 @@ const NavigationLink = ({id, label, ...props}) => (
 const NavigationLinkContainer = ({ links, handleLinkClick, classes }) => (
   <ul className={classes.container}>
     {links.map(element => (
-        <NavigationLink
-          id={element.id}
-          key={element.id}
-          label={element.label}
-          onClick={handleLinkClick}
-          className={classes.link}
-        />
+      <NavigationLink
+        id={element.id}
+        key={element.id}
+        label={element.label}
+        onClick={handleLinkClick}
+        className={classes.link}
+      />
     ))}
   </ul>
 );
@@ -49,16 +49,16 @@ const HamburgerMenu = ({ handleLinkClick, links }) => {
     <div
       className={getClassName({ [hamburgerStyles.hide]: !isOpen }, [
         hamburgerStyles.hamburgerContainer,
-        "hidden-md-up"
+        "hidden-md-up",
       ])}
     >
-      <HamburgerIcon onClick={toggleMenu} isOpen={isOpen}/>
+      <HamburgerIcon onClick={toggleMenu} isOpen={isOpen} />
       <div className={hamburgerStyles.hamburgerMenu}>
         <NavigationLinkContainer
           links={links}
           classes={{
             container: hamburgerStyles.navLinks,
-            link: hamburgerStyles.navLink
+            link: hamburgerStyles.navLink,
           }}
           handleLinkClick={handleClick}
         />
@@ -105,12 +105,12 @@ const Navigation = () => {
       >
         <div className={`row x-center y-center ${styles.navigation}`}>
           <NavigationLinkContainer
-              links={links}
-              classes={{
-                container: "hidden-md-down",
-                link: styles.navLink
-              }}
-              handleLinkClick={handleNavLinkClick}
+            links={links}
+            classes={{
+              container: "hidden-md-down",
+              link: styles.navLink,
+            }}
+            handleLinkClick={handleNavLinkClick}
           />
           <HamburgerMenu handleLinkClick={handleNavLinkClick} links={links} />
         </div>
