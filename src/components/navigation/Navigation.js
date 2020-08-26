@@ -13,17 +13,27 @@ const links = [
   { id: "#contact", label: "Contact" },
 ];
 
-const NavigationLinkContainer = ({ links, handleClick, containerClasses }) => (
-  <ul className={containerClasses}>
+const NavigationLink = ({id, label, ...props}) => (
+  <li {...props}>
+    <ScrollTo id={id}>{label}</ScrollTo>
+  </li>
+);
+
+const NavigationLinkContainer = ({ links, handleLinkClick, classes }) => (
+  <ul className={classes.container}>
     {links.map(element => (
-      <li key={element.id} onClick={handleClick}>
-        <ScrollTo id={element.id}>{element.label}</ScrollTo>
-      </li>
+        <NavigationLink
+          id={element.id}
+          key={element.id}
+          label={element.label}
+          onClick={handleLinkClick}
+          className={classes.link}
+        />
     ))}
   </ul>
 );
 
-const HamburgerMenu = ({ handleNavClick, links }) => {
+const HamburgerMenu = ({ handleLinkClick, links }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -31,13 +41,14 @@ const HamburgerMenu = ({ handleNavClick, links }) => {
 
   const handleClick = () => {
     setIsOpen(false);
-    handleNavClick();
+    handleLinkClick();
   };
 
   return (
     <div
       className={getClassName({ [hamburgerStyles.hide]: !isOpen }, [
         hamburgerStyles.hamburgerContainer,
+        "hidden-md-up"
       ])}
     >
       <div className={hamburgerStyles.hamburgerIcon} onClick={toggleMenu}>
@@ -47,9 +58,12 @@ const HamburgerMenu = ({ handleNavClick, links }) => {
       </div>
       <div className={hamburgerStyles.hamburgerMenu}>
         <NavigationLinkContainer
-          handleClick={handleClick}
           links={links}
-          containerClasses={hamburgerStyles.navLinks}
+          classes={{
+            container: hamburgerStyles.navLinks,
+            link: hamburgerStyles.navLink
+          }}
+          handleLinkClick={handleClick}
         />
       </div>
     </div>
@@ -89,16 +103,19 @@ const Navigation = () => {
             [styles.hidden]: !visible,
             [styles.navBg]: navigationHasBg,
           },
-          [styles.navigationContainer]
+          [styles.navigationContainer, "container", "container--fluid"]
         )}
       >
-        <div className={styles.navigation}>
+        <div className={`row x-center y-center ${styles.navigation}`}>
           <NavigationLinkContainer
-            handleClick={handleNavLinkClick}
-            containerClasses={styles.navLinks}
-            links={links}
+              links={links}
+              classes={{
+                container: "hidden-md-down",
+                link: styles.navLink
+              }}
+              handleLinkClick={handleNavLinkClick}
           />
-          <HamburgerMenu handleNavClick={handleNavLinkClick} links={links} />
+          <HamburgerMenu handleLinkClick={handleNavLinkClick} links={links} />
         </div>
       </header>
     </Slide>

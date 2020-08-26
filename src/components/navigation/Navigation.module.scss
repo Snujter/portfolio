@@ -1,6 +1,7 @@
 @import "../../styles/base";
 
 .navigation-container {
+  background-color: black;
   position: fixed;
   width: 100%;
   top: 0;
@@ -15,30 +16,14 @@
   }
 
   .navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-transform: uppercase;
-    position: relative;
-    box-sizing: border-box;
     height: $nav-height;
 
-    .nav-links {
-      display: none;
-      @include for-tablet-landscape-up() {
-        display: block;
-      }
-
-      margin: 0;
-
-      li {
-        display: inline-block;
-        margin-right: map_get($gutters, 'xl');
-        cursor: pointer;
-
-        &:last-child {
-          margin-right: 0;
-        }
+    .nav-link {
+      display: inline-block;
+      margin-right: map_get($gutters, 'xl');
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
