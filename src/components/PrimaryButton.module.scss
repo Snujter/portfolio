@@ -1,0 +1,25 @@
+@import "../styles/base";
+
+.primary-button {
+  cursor: pointer;
+  text-transform: uppercase;
+  color: map_get($colours, 'black');
+  background-color: map_get($colours, 'light-green');
+  border: 1px solid map_get($colours, 'light-green');
+  padding: map_get($gutters, 'm');
+  min-height: 40px;
+  min-width: 100px;
+  transition: all 0.4s ease 0s;
+
+  &:hover {
+    color: map_get($colours, 'light-green');
+    background-color: transparent;
+    transition: all 0.2s ease 0s;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
