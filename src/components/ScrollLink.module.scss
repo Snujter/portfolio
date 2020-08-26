@@ -1,0 +1,24 @@
+@import "../styles/base";
+
+.link {
+  cursor: pointer;
+}
+.underline {
+  $transition: 0.3s ease all;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    background: map_get($colours, 'light-green');
+    height: 2px;
+    transition: $transition;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+      transition: $transition;
+      color: map_get($colours, 'light-green');
+    }
+  }
+}
