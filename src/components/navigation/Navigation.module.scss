@@ -1,0 +1,29 @@
+@import "../../styles/base";
+
+.navigation-container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  transition: top 0.6s, background-color 0.5s ease-in-out;
+  color: map_get($colours, 'white');
+  &.hidden {
+    top: -100px;
+  }
+  &.nav-bg {
+    background-color: map_get($colours, 'black');
+  }
+
+  .navigation {
+    text-transform: uppercase;
+    height: $nav-height;
+
+    .nav-link {
+      display: inline-block;
+      margin-right: map_get($gutters, 'xl');
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

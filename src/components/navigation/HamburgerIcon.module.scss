@@ -1,0 +1,54 @@
+@import "../../styles/base";
+
+.icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 30px;
+  z-index: 1;
+  transform: translateX(5px);
+
+  &:focus {
+    outline: none;
+  }
+
+  div {
+    width: 2em;
+    height: 2px;
+    background: map_get($colours, 'light-green');
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    transform-origin: 2px;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &.hide {
+    div {
+      &:first-child {
+        transform: rotate(0);
+      }
+
+      &:nth-child(2) {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(0);
+      }
+    }
+  }
+}

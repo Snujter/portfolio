@@ -1,0 +1,33 @@
+@import "../../styles/base";
+
+.hamburger-container {
+  .hamburger-menu {
+    position: fixed;
+    top: $nav-height;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+    background-color: map_get($colours, 'black');
+    text-align: center;
+
+    .nav-links {
+      margin-top: map_get($gutters, 'l');
+      .nav-link {
+        margin-bottom: map_get($gutters, 'xl');
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  & .hamburger-menu {
+    transition: transform 0.4s ease-in-out;
+    transform: translateY(100vh);
+  }
+}
