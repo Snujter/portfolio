@@ -11,10 +11,27 @@ $colours: (
 // ------- BREAKPOINTS ---------
 $breakpoints: (
   'sm': 600,
-  'm': 800,
-  'l': 1000,
-  'xl': 1200,
+  'm': 900,
+  'l': 1200,
+  'xl': 1800,
 );
+
+// breakpoints
+@mixin for-phone-only {
+  @media (max-width: map_get($breakpoints, 'sm') - 1px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: map_get($breakpoints, 'sm') *1px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: map_get($breakpoints, 'm') *1px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: map_get($breakpoints, 'l') *1px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: map_get($breakpoints, 'xl') *1px) { @content; }
+}
 
 // -------- SPACING ------------
 $gutters: (
