@@ -1,0 +1,34 @@
+@import "../styles/base";
+
+.primary-button {
+  cursor: pointer;
+  text-transform: uppercase;
+  color: map_get($colours, 'black');
+  background-color: map_get($colours, 'light-green');
+  border: 1px solid map_get($colours, 'light-green');
+  border-radius: 100px;
+  padding: map_get($gutters, 'm') map_get($gutters, 'l');
+  transition: all 0.4s ease 0s;
+
+  &:hover {
+    transform: scale(1.1);
+    color: map_get($colours, 'light-green');
+    background-color: rgba(map_get($colours, 'light-green'), 0.1);
+    transition: all 0.2s ease 0s;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &.inverted {
+    color: map_get($colours, 'light-green');
+    background-color: transparent;
+    &:hover {
+      color: map_get($colours, 'black');
+      background-color: lighten(map_get($colours, 'light-green'), 10%);
+    }
+  }
+}

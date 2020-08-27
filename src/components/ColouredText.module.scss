@@ -1,0 +1,5 @@
+@import "../styles/base";
+
+.colored {
+  color: map_get($colours, 'light-green');
+}
