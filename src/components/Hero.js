@@ -1,12 +1,10 @@
-import React from "react";
-import scrollTo from "gatsby-plugin-smoothscroll";
-import styles from "./Hero.module.scss";
-import { getClassName } from "../helpers";
-import {graphql, useStaticQuery} from "gatsby";
-import Img from "gatsby-image";
+import React from 'react';
+import styles from './Hero.module.scss';
 import ColouredText from "./ColouredText";
+import Fade from 'react-reveal/Fade';
+import Img from "gatsby-image";
 import PrimaryButton from "./PrimaryButton";
-import ScrollTo from "./ScrollLink";
+import { useStaticQuery, graphql } from "gatsby";
 
 const HeroBanner = () => {
     const data = useStaticQuery(graphql`
@@ -22,9 +20,9 @@ const HeroBanner = () => {
     `);
 
     return (
-        <div className={styles.bannerContainer}>
+        <div className={styles.heroImgContainer}>
             <Img
-                className={styles.banner}
+                className={styles.heroImg}
                 fluid={data.heroImage.childImageSharp.sizes}
                 alt="Hero Banner"
             />
@@ -33,22 +31,28 @@ const HeroBanner = () => {
 };
 
 const Hero = () => (
-    <section id="home" className={styles.heroContainer}>
+    <section id="home" className={styles.intro}>
         <HeroBanner/>
-        <div className={[styles.hero, "container"].join(" ")}>
-            <div className={styles.heroText}>
-                <div>Hi, my name is</div>
-                <div className={styles.name}>
-                    <ColouredText>Tamas Schneider</ColouredText>
+        <div className={styles.container}>
+            <Fade>
+                <h1>
+                    <div className={styles.hello}>
+                        Hi, my name is
+                    </div>
+                    <div className={styles.name}>
+                        <ColouredText>Tamas Schneider</ColouredText>
+                    </div>
+                </h1>
+            </Fade>
+            <Fade bottom>
+                <h2 className={styles.description}>
+                    I’m a Full-Stack Web Developer working in HTML, CSS, JavaScript and PHP.
+                </h2>
+                <div className={styles.btnGroup}>
+                    <PrimaryButton className={styles.readMore}>Read more</PrimaryButton>
+                    <PrimaryButton inverted>Contact me</PrimaryButton>
                 </div>
-                <div className={styles.description}>
-                    I’m a Full-Stack Web Developer with more than 3 years of industry experience using HTML, CSS, JavaScript and PHP.
-                </div>
-            </div>
-            <div className={`${styles.btnContainer} row x-center`}>
-                <PrimaryButton className={styles.readMore}><ScrollTo id="about" hasUnderline={false}>Read more</ScrollTo></PrimaryButton>
-                <PrimaryButton inverted><ScrollTo id="contact" hasUnderline={false}>Contact me</ScrollTo></PrimaryButton>
-            </div>
+            </Fade>
         </div>
     </section>
 );
