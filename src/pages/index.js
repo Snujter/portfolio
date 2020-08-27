@@ -9,7 +9,7 @@ import Hero from "../components/Hero";
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Hero/>
+    <Hero />
   </Layout>
 );
 
