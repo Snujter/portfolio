@@ -5,6 +5,7 @@ import Fade from "react-reveal/Fade";
 import Img from "gatsby-image";
 import PrimaryButton from "./PrimaryButton";
 import { useStaticQuery, graphql } from "gatsby";
+import ScrollTo from "./ScrollLink";
 
 const HeroBanner = () => {
   const data = useStaticQuery(graphql`
@@ -48,7 +49,11 @@ const Hero = () => (
           PHP.
         </h2>
         <div className={styles.btnGroup}>
-          <PrimaryButton className={styles.readMore}>Read more</PrimaryButton>
+          <PrimaryButton className={styles.readMore}>
+            <ScrollTo id="#about-me" hasUnderline={false}>
+              Read more
+            </ScrollTo>
+          </PrimaryButton>
           <PrimaryButton inverted>Contact me</PrimaryButton>
         </div>
       </Fade>
