@@ -13,7 +13,7 @@
   &:hover {
     transform: scale(1.1);
     color: map_get($colours, 'light-green');
-    background-color: transparent;
+    background-color: rgba(map_get($colours, 'light-green'), 0.1);
     transition: all 0.2s ease 0s;
   }
 
@@ -21,5 +21,14 @@
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  &.inverted {
+    color: map_get($colours, 'light-green');
+    background-color: transparent;
+    &:hover {
+      color: map_get($colours, 'black');
+      background-color: lighten(map_get($colours, 'light-green'), 10%);
+    }
   }
 }

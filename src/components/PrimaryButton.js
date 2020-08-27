@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './PrimaryButton.module.scss';
 import LoadingIcon from "./LoadingIcon";
 
-const PrimaryButton = ({type, children, className, loading, ...props}) => (
+const PrimaryButton = ({type, children, className, loading, inverted, ...props}) => (
     <button type={type || 'button'}
-            className={[styles.primaryButton, className].join(' ')}
+            className={[styles.primaryButton, inverted ? styles.inverted : '', className].join(' ')}
             disabled={loading}
             {...props}
     >
