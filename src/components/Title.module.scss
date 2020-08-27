@@ -1,0 +1,8 @@
+@import "../styles/base";
+
+.title {
+  @include font-size-section-title();
+  text-transform: uppercase;
+  color: map_get($colours, 'light-green');
+  font-weight: map_get($font-weights, 'bold');
+}
